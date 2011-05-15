@@ -1,0 +1,13 @@
+6
+Bob 
+Mary Jane Alex
+Sam 
+Jane Alex Mary
+Greg
+Mary Alex Jane
+Mary 
+Bob Sam Greg
+Jane  
+Sam Greg Bob
+Alex
+Bob Greg Sam
