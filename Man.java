@@ -1,3 +1,4 @@
+import java.util.*;
 public class Man{
   
   private final String NAME;
@@ -8,7 +9,7 @@ public class Man{
   public Man(String name, ArrayList<Woman> pref){
     NAME = name;
     PREF = pref;
-    isMarried = false;
+    _isMarried = false;
     _partner = null;
   }
   

@@ -1,15 +1,16 @@
+import java.util.*;
 public class Woman{
   
-  private FINAL String NAME;
-  private FINAL ArrayList<Man> PREF;
+  private final String NAME;
+  private final ArrayList<Man> PREF;
   private int[] _proposals;
   private boolean _isMarried;
   
   public Woman(String name, ArrayList<Man> pref){
     NAME = name;
     PREF = pref;
-    isMarried = false;
-    _proposals = new Man[pref.size()];
+    _isMarried = false;
+    _proposals = new int[pref.size()];
   }
   public boolean isMarried(){
     return _isMarried;
