@@ -39,6 +39,10 @@ public class Woman{
     }
     return - 1;
   }
+   public String toString(){
+    return NAME;
+  }
+  
 }
 
     

@@ -40,21 +40,25 @@ public class Man{
     }
     return - 1;
   }
+  
+  public String toString(){
+    return NAME;
+  }
 }
 
  /*   
     Round 1
-    Bob, MaryAnn   X
-    Jack, MaryAnn
+    Bob, MaryAnn   X     you set the man to their first pref. 
+    Jack, MaryAnn        MaryAnn refects Bob
     Ping, Ginger  X
     
     Round 2
-    Bob, Ginger
+    Bob, Ginger          Bob goes to his 2nd choice
     
     Round 3
-    Ping MaryAnn X
+    Ping MaryAnn X          Ginger rejects Ping
     
-    Roudn 4
+    Roudn 4                   Ping goes to his 2nd choice
     Ping, Sarah  
     
     end: marriage is stable
