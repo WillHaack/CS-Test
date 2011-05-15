@@ -1,3 +1,4 @@
+import java.util.*;
 public class Marriage {
  
   private ArrayList<Man> Men;
