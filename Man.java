@@ -6,6 +6,13 @@ public class Man{
   private boolean _isMarried;
   private Woman _partner;
   
+  public Man(String name){
+      NAME = name;
+      PREF = new ArrayList<Woman>();
+      _isMarried = false;
+      _partner = null;
+  }
+  
   public Man(String name, ArrayList<Woman> pref){
     NAME = name;
     PREF = pref;
