@@ -1,57 +1,55 @@
 import java.util.*;
-public class Woman{
+
+public class Woman extends Human{
   
-  private final String NAME;
-  private final ArrayList<Man> PREF;
-  private int[] _proposals;
-  private boolean _isMarried;
+  private final ArraySet<Man> PREF;
+  private ArraySet<Man> _proposals;
+  private Man partner;
   
-  public Woman(String name, int numproposal){
-    NAME = name;
+  public Woman(String name, ArraySet<Man> pref){
+    super(name);
     PREF = pref;
-    _isMarried = false;
-    _proposals = new int[numproposal];
-  }
-  
-  public Woman(String name, ArrayList<Man> pref){
-    NAME = name;
-    PREF = pref;
-    _isMarried = false;
-    _proposals = new int[pref.size()];
+    partner = null;
+    _proposals = null;
   }
   public boolean isMarried(){
-    return _isMarried;
+    return partner != null;
   }
-  public void switchMarried(){
-    _isMarried = ! _isMarried;
+  public void setPartner(Man x){
+    partner = x;
   }
   
-  public ArrayList<Man> getPref(){
+  public ArraySet<Man> getPref(){
     return PREF;
   }
   
-  public int[] getProp(){
+  public ArraySet<Man> getProp(){
     return _proposals;
   }
   
   public void addProp(Man man){
-    _proposals[getRankofMan(man)] = 1;
+    _proposals.add(man);
+  }
+  
+  public void removeProp(Man man){
+    _proposals.remove(getRankOfMan(man));
+  }
+  
+  public int numProp(){
+    return _proposals.size();
   }
   
   // Rank "O" is top rank
-  // O(n) 
+  // O(n)
   public int getRankofMan(Man man){
-    for (int i = 0; i < PREF.size(); i++){
-      if (PREF.get(i).equals(man))
+    int i = 0;
+    Iterator itr = PREF.iterator();
+    while (itr.hasNext()){
+      if (itr.Next().equals(man))
         return i;
+      else
+        i++;
     }
     return - 1;
   }
-   public String toString(){
-    return NAME;
-  }
-  
 }
-
-    
- 
