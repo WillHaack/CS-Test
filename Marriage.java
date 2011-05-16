@@ -1,35 +1,24 @@
 import java.util.*;
-public class Marriage {
-  
+public class Marriage{
+ 
   private Man husband;
   private Woman wife;
-  
-  public Marriage(Man man, Woman woman){
-    husband = man;
-    woman = woman;
+ 
+  public Marriage(Man x, Woman y){
+    husband = x;
+    wife = y;
   }
-  
-  public String toString(){
-    return "" + husband + wife;  
-  }
-  
-  public Man getHusband(){
+ 
+  public Man getHusband() {
     return husband;
   }
-  
+ 
   public Woman getWife(){
     return wife;
   }
-  
-  public void setWife(Woman x){
-    wife = x;
+ 
+  public boolean equals(Object other){
+    return ((Marriage) other).getHusband() == husband && ((Marraige) other).getWife() == wife;
   }
-  
-  public void setHusband(Man x){
-    husband = x;
-  }
-}
-
-  
-  
+ 
 }
