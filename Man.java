@@ -1,75 +1,65 @@
 import java.util.*;
-public class Man{
+import java.lang.Object.*;
+
+public class Man extends Human{
   
-  private final String NAME;
-  private final ArrayList<Woman> PREF;
-  private boolean _isMarried;
-  private Woman _partner;
+  private final ArraySet<Woman> PREF;
+  private Woman partner;
   
-  public Man(String name){
-      NAME = name;
-      PREF = new ArrayList<Woman>();
-      _isMarried = false;
-      _partner = null;
-  }
-  
-  public Man(String name, ArrayList<Woman> pref){
-    NAME = name;
+  public Man(String name, ArraySet<Woman> pref){
+    super(name);
     PREF = pref;
-    _isMarried = false;
-    _partner = null;
+    partner = null;
   }
   
   public boolean isMarried(){
-    return _isMarried;
-  }
-  public void switchMarried(){
-    _isMarried = ! _isMarried;
+    return partner != null;
   }
   
-  public ArrayList<Woman> getPref(){
+  public ArraySet<Woman> getPref(){
     return PREF;
   }
   
   public Woman getPartner(){
-    return _partner;
+    return partner;
   }
   
-  public void setPartner(Woman partner){
-    _partner = partner;
+  public void setPartner(Woman x){
+    partner = x;
   }
+  
   
   // Rank "O" is top rank
-  // O(n) 
+  // O(n)
   public int getRankof(Woman woman){
-    for (int i = 0; i < PREF.size(); i++){
-      if (PREF.get(i).equals(woman))
+    int i = 0;
+    Iterator itr = PREF.iterator();
+    while (itr.hasNext()){
+      if (itr.Next().equals(woman))
         return i;
+      else
+        i++;
     }
     return - 1;
   }
-  
-  public String toString(){
-    return NAME;
-  }
 }
 
- /*   
-    Round 1
-    Bob, MaryAnn   X     you set the man to their first pref. 
-    Jack, MaryAnn        MaryAnn refects Bob
-    Ping, Ginger  X
-    
-    Round 2
-    Bob, Ginger          Bob goes to his 2nd choice
-    
-    Round 3
-    Ping MaryAnn X          Ginger rejects Ping
-    
-    Roudn 4                   Ping goes to his 2nd choice
-    Ping, Sarah  
-    
-    end: marriage is stable
-    
-    Names: 1,2,3....n
-  */  
+/*   
+ Round 1
+ Bob, MaryAnn   X     you set the man to their first pref. 
+ Jack, MaryAnn        MaryAnn refects Bob
+ Ping, Ginger  X
+ 
+ Round 2
+ Bob, Ginger          Bob goes to his 2nd choice
+ 
+ Round 3
+ Ping MaryAnn X          Ginger rejects Ping
+ 
+ Roudn 4                   Ping goes to his 2nd choice
+ Ping, Sarah  
+ 
+ end: marriage is stable
+ 
+ Names: 1,2,3....n
+ */  
