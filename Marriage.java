@@ -1,35 +1,45 @@
 import java.util.*;
-public class Marriage implements Comparable {
-    private Man guy;
-    private Woman girl;
+
+public class Man {
+
+    private String name;
+    private ArrayList<Woman> partners;
     
-    public Marriage(Man dude, Woman chick){
-        guy = dude;
-        girl = chick;
+    public Man(String name){
+        this.name = name;
+        partners = new ArrayList<Woman>();
     }
     
     public String toString(){
-        return guy.getName() + " " + girl.getName();
+        return name;
+    }
+    
+    public void setPartners(ArrayList<Woman> partners){
+        this.partners = partners;
+    }
+    
+    public Man(String name, ArrayList<Woman> list) {
+        this.name = name;
+        partners = list;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean equals(Object other) {
+        return getName().equals(((Man) other).getName());
+    }
+    
+    public Woman getWoman(int i){
+        return partners.get(i);
     }
     
     public int compareTo(Object other){
-        if (getMan().equals(((Marriage)other).getMan()) || getWoman().equals(((Marriage)other).getWoman()))
-            return 0;
-        return 1;
+        return getName().compareTo(((Man)other).getName());
     }
     
-    public Man getMan(){
-        return guy;
+    public void addWoman(Woman w){
+        partners.add(w);
     }
-    
-    public Woman getWoman(){
-        return girl;
-    }
-    
-    public boolean equals(Object other){
-        return getMan().equals(((Marriage)other).getMan()) || getWoman().equals(((Marriage)other).getWoman());
-    }
-    
-    
-    
 }
