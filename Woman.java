@@ -1,55 +1,46 @@
 import java.util.*;
 
-public class Woman extends Human{
-  
-  private final ArraySet<Man> PREF;
-  private ArraySet<Man> _proposals;
-  private Man partner;
-  
-  public Woman(String name, ArraySet<Man> pref){
-    super(name);
-    PREF = pref;
-    partner = null;
-    _proposals = null;
-  }
-  public boolean isMarried(){
-    return partner != null;
-  }
-  public void setPartner(Man x){
-    partner = x;
-  }
-  
-  public ArraySet<Man> getPref(){
-    return PREF;
-  }
-  
-  public ArraySet<Man> getProp(){
-    return _proposals;
-  }
-  
-  public void addProp(Man man){
-    _proposals.add(man);
-  }
-  
-  public void removeProp(Man man){
-    _proposals.remove(man);
-  }
-  
-  public int numProp(){
-    return _proposals.size();
-  }
-  
-  // Rank "O" is top rank
-  // O(n)
-  public int getRankOfMan(Man man){
-    int i = 0;
-    Iterator itr = PREF.iterator();
-    while (itr.hasNext()){
-      if (itr.next().equals(man))
-        return i;
-      else
-        i++;
+public class Woman {
+
+    private String name;
+    private ArrayList<Man> partners;
+
+    public Woman(String name){
+        this.name = name;
+        partners = new ArrayList<Man>();
     }
-    return - 1;
-  }
+    
+    public void addMan(Man man){
+            partners.add(man);
+    }
+    
+    public String toString(){
+        return name;
+    }
+    
+    public void setPartners(ArrayList<Man> partners){
+        this.partners = partners;
+    }
+    
+    public Woman(String name, ArrayList<Man> list) {
+        this.name = name;
+        partners = list;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean equals(Object other) {
+        return getName().equals(((Woman) other).getName());
+    }
+    
+    public Man getMan(int i){
+        return partners.get(i);
+    }
+    
+    public int compareTo(Object other){
+        return getName().compareTo(((Woman)other).getName());
+    }
+    
 }
