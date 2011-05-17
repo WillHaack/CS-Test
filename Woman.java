@@ -32,7 +32,7 @@ public class Woman extends Human{
   }
   
   public void removeProp(Man man){
-    _proposals.remove(getRankOfMan(man));
+    _proposals.remove(man);
   }
   
   public int numProp(){
@@ -41,11 +41,11 @@ public class Woman extends Human{
   
   // Rank "O" is top rank
   // O(n)
-  public int getRankofMan(Man man){
+  public int getRankOfMan(Man man){
     int i = 0;
     Iterator itr = PREF.iterator();
     while (itr.hasNext()){
-      if (itr.Next().equals(man))
+      if (itr.next().equals(man))
         return i;
       else
         i++;
