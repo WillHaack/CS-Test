@@ -35,7 +35,7 @@ public class Man extends Human{
     int i = 0;
     Iterator itr = PREF.iterator();
     while (itr.hasNext()){
-      if (itr.Next().equals(woman))
+      if (itr.next().equals(woman))
         return i;
       else
         i++;
